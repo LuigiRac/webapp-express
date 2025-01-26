@@ -1,7 +1,7 @@
 const connection = require('../db');
 
 function index(req, res) {
-    const query = 'SELECT * FROM posts';
+    const query = 'SELECT * FROM movies';
 
     connection.query(query, (err, results) => {
         res.json(results);
