@@ -1,5 +1,4 @@
 const express = require('express');
-const movieController = require('./controllers/movieController');
 const port = process.env.PORT || 3000;
 const app = express();
 const movieRouter = require('./routers/movie')
@@ -11,7 +10,7 @@ app.get('/', (req, res) => {
     res.send('Home page')
 });
 
-app.use('/movie', movieRouter);
+app.use('/movies', movieRouter);
 
 
 app.listen(port, () => {
