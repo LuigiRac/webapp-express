@@ -19,8 +19,6 @@ function show(req, res) {
         WHERE movie_id = ?`;
 
 
-
-
     connection.query(query, [id], (err, results) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
         if (results.length === 0) return res.status(404).json({ error: 'Post not found' });
