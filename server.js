@@ -6,6 +6,11 @@ const movieRouter = require('./routers/movie')
 const errorsHandler = require('./middlewares/errorsHandler');
 const notFound = require('./middlewares/notFound');
 
+const cors = require("cors");
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
+
 app.use(express.json());
 
 app.use(express.static("public"));
