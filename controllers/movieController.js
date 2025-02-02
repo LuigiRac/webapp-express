@@ -36,6 +36,8 @@ function show(req, res) {
     })
 }
 
+function storeReview(req, res) {
 
+}
 
-module.exports = { index, show };
+module.exports = { index, show, storeReview };

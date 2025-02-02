@@ -9,4 +9,7 @@ router.get('/', movieController.index);
 // SHOW
 router.get('/:id', movieController.show);
 
+//STORE - reviews
+router.post('/:id/reviews', storeReview)
+
 module.exports = router;

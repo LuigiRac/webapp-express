@@ -19,6 +19,8 @@ app.get('/', (req, res) => {
     res.send('Home page')
 });
 
+app.use("/api/movies", movieRouter)
+
 app.use('/movies', movieRouter);
 app.use(errorsHandler);
 app.use(notFound);
