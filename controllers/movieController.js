@@ -37,7 +37,21 @@ function show(req, res) {
 }
 
 function storeReview(req, res) {
+    const { id } = req.params;
 
+    const { text, name, vote } = req.body;
+
+    const addReviews = "INSERT INTO reviews ( text, name, vote, movie_id) VALUES (?, ?, ?, ?) ";
+
+    connection.query(addReviews, [text, name, vote, id], (err, results) => {
+        if (err) return res.status(500).json({ error: 'Database query failed' });
+        console.log(results);
+
+        res.status(201);
+        res.json({ message: "Review aggiunta", id: results.insertId });
+        // if (results.length === 0) return res.status(404).json({ error: 'Review not found' });
+
+    })
 }
 
 module.exports = { index, show, storeReview };
