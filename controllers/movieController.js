@@ -21,7 +21,7 @@ function show(req, res) {
 
     connection.query(query, [id], (err, results) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
-        if (results.length === 0) return res.status(404).json({ error: 'Post not found' });
+        if (results.length === 0) return res.status(404).json({ error: 'Movie not found' });
 
 
         const movies = results[0];
@@ -29,7 +29,7 @@ function show(req, res) {
         connection.query(reviewSql, [id], (err, reviewResults) => {
             if (err) return res.status(500).json({ error: 'Database query failed' });
 
-            movies.movies = reviewResults;
+            movies.reviews = reviewResults;
             res.json(movies);
 
         })
